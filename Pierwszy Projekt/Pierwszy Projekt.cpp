@@ -6,17 +6,18 @@ int main()
 {
     float a, b, x0;
     cout << "Obliczanie miejsca zerowego f. liniowej! (a =/= 0)" << endl;
-powrot:
     cout << "Podaj a: "; cin >> a;
+    cout << "Podaj b: "; cin >> b;
     if (a != 0)
     {
-        cout << "Podaj b: "; cin >> b;
         x0 = -b / a;
         cout << "Miejsce zerowe: " << x0;
     }
     else {
-        cout << "Wartosc a=/=0!" << endl;
-        goto powrot;
+        if (b == 0)
+            cout << "Funkcja ma nieskonczenie wiele miejsc zerowych" << endl;
+        else
+            cout << "Funkcja nie ma miejsc zerowych" << endl;
     }
 
 }
