@@ -6,7 +6,7 @@ using namespace std;
 int main()
 {
     int wybor;
-    cout << "Wybierz odpowiednia opcje:\n";
+    cout << "Wybierz odpowiednia opcje:"<<endl;
     cout << "1. Obliczanie f. liniowej w postaci y=ax+b"<<endl;
     cout << "2. Obliczanie f. liniowej w postaci Ax+By+c=0"<<endl;
     cout << "3. Obliczanie f. kwadratowej w postaci ax^2+bx+c a=/=0"<<endl;
@@ -76,7 +76,21 @@ int main()
             }
             else cout << "Funkcja nie ma miejsc zerowych.\n";
         }
+        else
+        {
+            cout << "To jest funkcja liniowa" << endl;
+            if (b != 0)
+            {
+                x1 = -c / b;
+                cout << "Miejsce zerowe: " << x1;
+            }
+            else {
+                if (c == 0)
+                    cout << "Funkcja ma nieskonczenie wiele miejsc zerowych" << endl;
+                else
+                    cout << "Funkcja nie ma miejsc zerowych" << endl;
+            }
+        }
 
     }
-
 }
