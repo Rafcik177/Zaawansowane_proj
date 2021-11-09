@@ -1,6 +1,5 @@
 ﻿#include <iostream>
 #include <cmath>
-#include <conio.h>
 using namespace std;
 
 int main()
@@ -12,9 +11,12 @@ int main()
     cout << "2. Obliczanie x0 f. liniowej w postaci Ax+By+c=0" << endl;
     cout << "3. Obliczanie x0 f. kwadratowej w postaci ax^2+bx+c a=/=0" << endl;
     cout << "4. Obliczanie x0 f. kwadratowej w postaci y=a(x-p)^2+q" << endl;
+    cout << "==========================Ogolna=============================" << endl;
     cout << "5. Przeliczanie funkcji ogolnej na kanoniczna z ax^2+bx+c na a(x-p)^2+q" << endl;
     cout << "6. Przeliczanie funkcji ogolnej na ilocznowa z ax^2+bx+c na a(x-x1)(x-x2)" << endl;
-    cout << "=======================================================" << endl;
+    cout << "=======================Kanoniczna================================" << endl;
+    cout << "7. Przeliczanie funkcji kanonicznej na ogolna z a(x-p)^2+q na ax^2+bx+c" << endl;
+    
     cin >> wybor;
     if (wybor == 1)
     {
@@ -179,4 +181,27 @@ int main()
             cout << "Funkcja nie ma postaci iloczynowej";
         }
     }
+    else if (wybor == 7)
+    {
+        float a, b, c, d,p,q, x1, x2;
+        cout << "Podaj wzor postaci kanonicznej a(x-p)^2+q" << endl;
+        cout << "Podaj a: "; cin >> a;
+        cout << "Podaj p: "; cin >> p;
+        cout << "Podaj q: "; cin >> q;
+        b = -2 * a * p;
+        c = a * p * p + q;
+        cout << "Postac ogolna: a= " << a << " b=" << b << " c=" << c;
+        d = (b * b) - (4 * a * c);
+        if (d > 0)
+        {
+            x1 = (-b - sqrt(d)) / (2 * a);
+            x2 = (-b + sqrt(d)) / (2 * a);
+            cout << "\nPostac iloczynowa: a=" << a << " x1 = " << x1 << " x2 = " << x2;
+        }
+        else
+        {
+            cout << "Funkcja nie ma postaci iloczynowej";
+        }
+    }
+    
 }
