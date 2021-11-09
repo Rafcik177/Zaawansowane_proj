@@ -1,15 +1,17 @@
 ﻿#include <iostream>
 #include <cmath>
-
+#include <conio.h>
 using namespace std;
 
 int main()
 {
     int wybor;
+    cout << "=======================================================" << endl;
     cout << "Wybierz odpowiednia opcje:"<<endl;
     cout << "1. Obliczanie f. liniowej w postaci y=ax+b"<<endl;
     cout << "2. Obliczanie f. liniowej w postaci Ax+By+c=0"<<endl;
     cout << "3. Obliczanie f. kwadratowej w postaci ax^2+bx+c a=/=0"<<endl;
+    cout << "======================================================="<<endl;
     cin >> wybor;
     if (wybor == 1)
     {
