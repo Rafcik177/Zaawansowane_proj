@@ -12,11 +12,11 @@ int main()
     cout << "3. Obliczanie x0 f. kwadratowej w postaci ax^2+bx+c a=/=0" << endl;
     cout << "4. Obliczanie x0 f. kwadratowej w postaci y=a(x-p)^2+q" << endl;
     cout << "==========================Ogolna=============================" << endl;
-    cout << "5. Przeliczanie funkcji ogolnej na kanoniczna z ax^2+bx+c na a(x-p)^2+q" << endl;
-    cout << "6. Przeliczanie funkcji ogolnej na ilocznowa z ax^2+bx+c na a(x-x1)(x-x2)" << endl;
+    cout << "5. Przeliczanie funkcji ogolnej na kanoniczna i iloczynowa z ax^2+bx+c" << endl;
     cout << "=======================Kanoniczna================================" << endl;
-    cout << "7. Przeliczanie funkcji kanonicznej na ogolna z a(x-p)^2+q na ax^2+bx+c" << endl;
-    
+    cout << "6. Przeliczanie funkcji kanonicznej na ogolna i iloczynowa z a(x-p)^2+q" << endl;
+    cout << "=======================Iloczynowa================================" << endl;
+    cout << "7. Przeliczanie funkcji iloczynowej na ogolna i kanoniczna z a(x-p)^2+q" << endl;
     cin >> wybor;
     if (wybor == 1)
     {
@@ -147,29 +147,19 @@ int main()
     }
     else if (wybor == 5)
     {
-    float a, b, c, p, q,d;
-    cout << "Podaj wzor postaci ogolnej ax^2+bx+c" << endl;
-    cout << "Podaj a: "; cin>>a;
-    cout << "Podaj b: "; cin>>b;
-    cout << "Podaj c: "; cin>>c;
-    d = (b * b) - (4 * a * c);
-    if (a != 0)
-    {
-        p = (-b) / (2*a);
-        q = (-d) / (4*a);
-        cout << "Postac kanoniczna: a="<<a<<" p = " << p << " q = " << q;
-    }
-    
-
-    }
-    else if (wybor == 6)
-    {
-        float a, b, c, d, x1, x2;
+        float a, b, c, p, q,d,x1,x2;
         cout << "Podaj wzor postaci ogolnej ax^2+bx+c" << endl;
-        cout << "Podaj a: "; cin >> a;
-        cout << "Podaj b: "; cin >> b;
-        cout << "Podaj c: "; cin >> c;
+        cout << "Podaj a: "; cin>>a;
+        cout << "Podaj b: "; cin>>b;
+        cout << "Podaj c: "; cin>>c;
         d = (b * b) - (4 * a * c);
+        if (a != 0)
+        {
+            p = (-b) / (2 * a);
+            q = (-d) / (4 * a);
+            cout << "Postac kanoniczna: a=" << a << " p = " << p << " q = " << q;
+        }
+        else cout << "Nie ma postaci kanonicznej" << endl;
         if (d > 0)
         {
             x1 = (-b - sqrt(d)) / (2 * a);
@@ -180,6 +170,7 @@ int main()
         {
             cout << "Funkcja nie ma postaci iloczynowej";
         }
+
     }
     else if (wybor == 7)
     {
@@ -203,5 +194,19 @@ int main()
             cout << "Funkcja nie ma postaci iloczynowej";
         }
     }
-    
+    else if (wybor == 8)
+    {
+        float a, b, c, d, p, q, x1, x2;
+        cout << "Podaj wzor postaci iloczynowej a(x-x1)(x-x2)" << endl;
+        cout << "Podaj a: "; cin >> a;
+        cout << "Podaj x1: "; cin >> x1;
+        cout << "Podaj x2: "; cin >> x2;
+        b = (-a)*(x1+x2);
+        c = a * x1*x2;
+        cout << "Postac ogolna: a= " << a << " b=" << b << " c=" << c;
+        d = (b * b) - (4 * a * c);
+        p = (x1 + x2) / 2;
+        q = a * (p - x1) * (p - x2);
+        cout << "\nPostac kanoniczna: a= " << a << " p=" << p << " q=" << q;
+    }
 }
